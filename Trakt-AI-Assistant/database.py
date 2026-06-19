@@ -109,10 +109,9 @@ def save_history_items(items):
             season,
             episode,
             episode_title,
-            tmdb_id,
             imdb_id
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, (
             trakt_id,
             title,
@@ -121,7 +120,6 @@ def save_history_items(items):
             season,
             episode,
             episode_title,
-            None,
             imdb_id
         ))
 
