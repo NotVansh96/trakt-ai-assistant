@@ -1,5 +1,6 @@
 import json
 import requests
+import os
 
 from config import (
     TRAKT_CLIENT_ID,
@@ -44,6 +45,14 @@ def exchange_code_for_token(code):
 
 
 def get_access_token():
+
+    token = os.getenv(
+        "TRAKT_ACCESS_TOKEN"
+    )
+
+    if token:
+        return token
+
     tokens = load_tokens()
 
     if "access_token" in tokens:
