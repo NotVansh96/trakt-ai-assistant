@@ -1,14 +1,19 @@
 import streamlit as st
 
 from database import create_tables
-
 from auto_sync import auto_sync
+
+import upgrade_db
+import upgrade_history
+import upgrade_imdb
 
 st.set_page_config(
     page_title="Trakt AI Assistant",
     page_icon="🎬",
     layout="wide"
 )
+
+create_tables()
 
 if "initial_sync" not in st.session_state:
 
@@ -19,8 +24,6 @@ if "initial_sync" not in st.session_state:
         auto_sync()
 
     st.session_state["initial_sync"] = True
-
-create_tables()
 
 st.title("🎬 Trakt AI Assistant")
 
