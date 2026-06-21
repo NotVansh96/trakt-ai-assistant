@@ -1,11 +1,11 @@
 import sqlite3
 
-DB_NAME = "database.db"
+from pathlib import Path
 
+DB_PATH = Path(__file__).resolve().parent / "database.db"
 
 def get_connection():
-    return sqlite3.connect(DB_NAME)
-
+    return sqlite3.connect(DB_PATH)
 
 def create_tables():
     conn = get_connection()
