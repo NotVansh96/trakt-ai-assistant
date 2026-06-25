@@ -73,16 +73,19 @@ def get_headers():
 
 
 def get_profile():
+
     response = requests.get(
         "https://api.trakt.tv/users/settings",
         headers=get_headers()
     )
 
+    print("Status Code:", response.status_code)
+    print("Response:", response.text)
+
     if response.status_code == 200:
         return response.json()
 
     return None
-
 
 def get_user_stats():
     profile = get_profile()
