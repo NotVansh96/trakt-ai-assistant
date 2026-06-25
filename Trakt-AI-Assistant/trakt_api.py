@@ -79,8 +79,10 @@ def get_profile():
         headers=get_headers()
     )
 
+    print("=" * 50)
     print("Status Code:", response.status_code)
     print("Response:", response.text)
+    print("=" * 50)
 
     if response.status_code == 200:
         return response.json()
